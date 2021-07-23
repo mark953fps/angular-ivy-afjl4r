@@ -4,9 +4,17 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let dataList of groupDataListChunkArr;">
+    <tr *ngFor="let dataList of groupDataListChunkArr; let i = index;">
       <ng-container *ngFor="let data of dataList;">
         <td>{{ data.groupName }}</td>
+      </ng-container>
+
+      <ng-container *ngIf="groupDataListChunkArr.length - 1 === i">
+        <ng-container
+          *ngFor="let td of testFunction(groupDataListChunkArr[groupDataListChunkArr.length -1])"
+        >
+          <td></td>
+        </ng-container>
       </ng-container>
     </tr>
   </tbody>

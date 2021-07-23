@@ -6,6 +6,9 @@ import { Component, VERSION, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  public chunkSize: number = 5;
+  public groupDataListChunkArr = [];
+
   public groupDataList: any = [
     { groupName: 'test1', groupId: '1' },
     { groupName: 'test2', groupId: '2' },
@@ -23,14 +26,16 @@ export class AppComponent {
     { groupName: 'test14', groupId: '14' },
     { groupName: 'test15', groupId: '15' },
     { groupName: 'test16', groupId: '16' },
-    { groupName: 'test17', groupId: '17' }
+    { groupName: 'test17', groupId: '17' },
+    { groupName: 'test18', groupId: '18' }
   ];
 
-  public groupDataListChunkArr = [];
-
   public ngOnInit() {
-    this.groupDataListChunkArr = this.sliceIntoChunks(this.groupDataList, 5);
-    console.log(this.sliceIntoChunks(this.groupDataList, 5));
+    this.groupDataListChunkArr = this.sliceIntoChunks(
+      this.groupDataList,
+      this.chunkSize
+    );
+    console.log(this.sliceIntoChunks(this.groupDataList, this.chunkSize));
   }
 
   public sliceIntoChunks(arr, chunkSize) {
@@ -40,5 +45,21 @@ export class AppComponent {
       res.push(chunk);
     }
     return res;
+  }
+
+  public testFunction(dataList: any): any {
+    // console.log(dataList, 'dataList');
+    let arr = [];
+    let count = 0;
+
+    if (dataList.length < this.chunkSize) {
+      count = this.chunkSize - dataList.length;
+
+      for (let i = 0; i < count; i++) {
+        arr.push(i);
+      }
+
+      return arr;
+    }
   }
 }
