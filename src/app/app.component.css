@@ -4,5 +4,6 @@ table.table {
 }
 
 table.table td {
-  border: 1px solid red;
+  border: 1px solid gray;
+  padding: 5px;
 }
