@@ -47,8 +47,7 @@ export class AppComponent {
     return res;
   }
 
-  public testFunction(dataList: any): any {
-    // console.log(dataList, 'dataList');
+  public autoGenerateTd(dataList: any): any {
     let arr = [];
     let count = 0;
 

@@ -11,7 +11,7 @@
 
       <ng-container *ngIf="groupDataListChunkArr.length - 1 === i">
         <ng-container
-          *ngFor="let td of testFunction(groupDataListChunkArr[groupDataListChunkArr.length -1])"
+          *ngFor="let td of autoGenerateTd(groupDataListChunkArr[groupDataListChunkArr.length -1])"
         >
           <td></td>
         </ng-container>
